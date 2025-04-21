@@ -5,69 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/media-query.css">
+    <link rel="stylesheet" href="./css/media-query.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
-
     <!-- Start Navbar -->
     <input type="checkbox" id="menu-toggle" />
-    
-    <nav class="navbar">
-      <div class="container menu-container sm-90 md-90 lg-80 xl-80 xxl-75">
-        <nav class="menu-nav">
+    <div class="content">
+      <nav class="navbar">
+        <div class="container menu-container sm-90 md-90 lg-80 xl-80 xxl-75">
+          <div class="menu-nav">
             <div class="logo"><a href="index.html">Mealify</a></div>
 
             <!-- Main Menu -->
-             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Chefs</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-             </ul>
+            <ul class="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Chefs</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
 
-            <!-- Hamborger Btn for small screen -->
-            <label for="menu-toggle" class="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </label>
-        </nav>
-        <!-- The Cover -->
-        <div class="overlay"></div>
+            <div class="right-side">
+              <!-- ضعه داخل body -->
+              <div class="mode-toggle">
+                <input type="checkbox" id="dark-toggle" hidden />
 
+                <!-- الوضع الفاتح (قمر 🌙) -->
+                <label for="dark-toggle" class="toggle dark-mode">
+                  <i class="fa-solid fa-moon"></i>
+                </label>
 
+                <!-- الوضع الداكن (شمس ☀️) -->
+                <label for="dark-toggle" class="toggle light-mode">
+                  <i class="fa-solid fa-sun"></i>
+                </label>
+              </div>
 
-
-
-
-        <!-- ✅ قائمة التحقق -->
-        <!-- <input type="checkbox" id="menu-toggle" /> -->
-
-        <!-- ✅ الشريط العلوي -->
-        <!-- <nav class="navbar">
-          <h1 class="logo"><a href="index.html">Mealify</a></h1>
-          <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </nav> -->
-
-        <!-- ✅ الغطاء الخلفي -->
-        <!-- <div class="overlay"></div> -->
-
-        <!-- ✅ القائمة الجانبية -->
-        <!-- <div class="sidebar">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Chefs</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div> -->
-
-
-      </div>
-    </nav>
+              <!-- Hamborger Btn for small screen -->
+              <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </div>
+          <!-- The Cover -->
+          <div class="overlay"></div>
+        </div>
+      </nav>
+    </div>
   </body>
 </html>
