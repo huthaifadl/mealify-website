@@ -1,0 +1,254 @@
+/* Global */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #212529;
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter", sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+/* Color Variables */
+:root {
+}
+
+/* ---------------------------------------------------- */
+
+/* Navbar Start */
+
+
+.navbar {
+  background-color: hsl(0, 0%, 100%);
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  box-shadow: 0px 0px 14px 0px #0000001b;
+}
+
+nav > .container {
+  /* background: #b96e6e; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 5px;
+  flex-wrap: wrap; /*السماح لعناصر فليكس بوكس بالنزول إلى سطر جديد*/
+}
+
+.logo-name {
+    font-size: 30px;
+    color: #212529;
+}
+
+.logo-name > a::after {
+    content: ".";
+    color: #ff0000;
+}
+
+ul.nav-links {
+  /* background: #42885b; */
+  display: flex;
+  gap: 5px 32px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+ul.nav-links > li {
+  cursor: pointer;
+  /* background-color: aqua; */
+  /* margin: 0px 10px; */
+  /* padding: 20px 5px; */
+}
+
+ul.nav-links > li > a {
+  color: #7f7f90;
+  padding: 10px 0px;
+  /* border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out; */
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to right, #000 50%, #7f7f90 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff0000;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-position: 0 0;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.mode-group > label > a > i {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.mode-group > .light {
+  display: none;
+}
+
+/* ---------------------------------------------------- */
+
+
+/* Header Start */
+.home {
+    display: flex;
+    background-color: #eee;
+    height: 100vh;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .container > * {
+    width: 40%;
+}
+
+picture, img {
+    display: block;
+}
+
+.header-content h2 {
+    color: #37373f;
+    font-size: 65px;
+    font-family: "Amatic SC", sans-serif;
+}
+
+.header-content p {
+    margin: 20px 0;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #4f4f5a;
+}
+
+.header-content .btn-group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.btn {
+    color: hsl( 0, 0%, 100% );
+    border-width: 2px;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: hsl(0, 84%, 57%);
+}
+
+header .btn-main {
+    padding: 10px 25px;
+    border-radius: 0px 100px 100px;
+    background-color: hsl( 0, 84%, 44% );
+    font-size: 15;
+}
+
+a.video-btn {
+    display: flex;
+    align-items: center;
+    font-weight: 600px;
+    transition: 400ms;
+}
+
+.video-btn .icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 5px;
+    background-image: linear-gradient(
+        to right,
+        hsl( 0, 84%, 44% ) 0 50%,
+        transparent 50% 100%
+      );
+      border-radius: 50%;
+      position: relative;
+}
+
+.video-btn .icon::before {
+    content: "";
+    position: absolute;
+    background-color: hsl( 0, 0%, 100% );
+    width: 40px;
+    height: 40px;
+    transform: translate(-20px,-20px);
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+}
+
+.video-btn .icon i {
+    z-index: 5;
+}
+
+header picture img {
+    filter: drop-shadow(4px 4px 9px #000a);
+}
