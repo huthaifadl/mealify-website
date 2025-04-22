@@ -16,16 +16,20 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   color: #212529;
   font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.container {
-  width: 80%;
+.container { /*Move it to media quiery*/
+  width: 70%;
   margin: 0 auto;
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,7 +42,7 @@ ul {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
 }
 
 a {
@@ -69,6 +73,7 @@ nav > .container {
   align-items: center;
   padding: 25px 5px;
   flex-wrap: wrap; /*السماح لعناصر فليكس بوكس بالنزول إلى سطر جديد*/
+  margin: 0 auto;
 }
 
 .logo-name {
@@ -151,11 +156,14 @@ ul.nav-links > li > a {
 
 
 /* Header Start */
+
+
 .home {
     display: flex;
     background-color: #eee;
     height: 100vh;
     align-items: center;
+    overflow: hidden;
 }
 
 header .container {
@@ -163,6 +171,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 95px;
 }
 
 header .container > * {
@@ -170,8 +179,14 @@ header .container > * {
 }
 
 picture, img {
+    max-height: 90vh;
+    object-fit: contain;
     display: block;
+    height: auto;
+    filter: drop-shadow(4px 4px 9px #000a);
 }
+
+
 
 .header-content h2 {
     color: #37373f;
@@ -249,6 +264,70 @@ a.video-btn {
     z-index: 5;
 }
 
-header picture img {
-    filter: drop-shadow(4px 4px 9px #000a);
+header picture img:hover {
+    animation: shank 1s infinite;
 }
+
+@keyframes shank {
+    0% {transform: translate(1px, 1px) rotate(0deg);}
+    10% {transform: translate(-1px, -2px) rotate(-1deg);}
+    20% {transform: translate(-3px, 0px) rotate(1deg);}
+    30% {transform: translate(3px, 2px) rotate(0deg);}
+    40% {transform: translate(1px, -1px) rotate(1deg);}
+    50% {transform: translate(-1px, 2px) rotate(-1deg);}
+    60% {transform: translate(-3px, 1px) rotate(0deg);}
+    70% {transform: translate(3px, 1px) rotate(-1deg);}
+    80% {transform: translate(-1px, -1px) rotate(1deg);}
+    90% {transform: translate(1px, 2px) rotate(0deg);}
+    100% {transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+/* Header End */
+
+/* ---------------------------------------------------- */
+
+
+/* CHEFS Section Start */
+
+.chefs {
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 0px 14px 0px #0000001b;
+    overflow: hidden;
+}
+
+.chefs > .container {
+    background-color: brown;
+    /* height: 400px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.main-title h2 {
+    color: #7f7f90;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.main-title p {
+    font-size: 50px;
+    font-family: "Amatic SC", sans-serif;
+}
+
+.main-title p span {
+    color: hsl( 0, 84%, 44% );
+}
+
+.chefs-cards {
+    display: flex;
+}
+
+/* CHEFS Section End */
+
