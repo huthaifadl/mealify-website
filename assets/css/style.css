@@ -45,6 +45,14 @@ img {
     max-width: 100%;
 }
 
+picture, img {
+    display: block;
+}
+
+a, span {
+    display: inline-block;
+}
+
 a {
   text-decoration: none;
   color: #333;
@@ -178,15 +186,13 @@ header .container > * {
     width: 40%;
 }
 
-picture, img {
+.header-img img {
     max-height: 90vh;
     object-fit: contain;
     display: block;
     height: auto;
     filter: drop-shadow(4px 4px 9px #000a);
 }
-
-
 
 .header-content h2 {
     color: #37373f;
@@ -296,7 +302,7 @@ header picture img:hover {
 }
 
 .chefs > .container {
-    background-color: brown;
+    /* background-color: brown; */
     /* height: 400px; */
     display: flex;
     flex-direction: column;
@@ -327,7 +333,147 @@ header picture img:hover {
 
 .chefs-cards {
     display: flex;
+    flex-wrap: wrap;
+    padding-block: 20px;
+    gap: 30px;
+}
+
+.chefs-cards .card:hover {
+    scale: 1.07;
+}
+
+.chefs-cards .card {
+    width: calc(calc(100% - 30px * 2) / 3);
+    text-align: center;
+    box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+    transition: scale 400ms;
+    background-color: hsl( 0, 0%, 100% );
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.chefs-cards .card picture {
+    width: 100%;
+    position: relative;
+}
+
+.chefs-cards .card picture::before {
+    content: "";
+    position: absolute;
+    background-image: url(../imgs/team-shape.svg);
+    background-repeat: repeat-x;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.chefs-cards .card span {
+    font-size: 14px;
+    color: #7f7f90;
+    margin-block: 5px 10px;
+}
+
+.card-content {
+    padding: 25px;
+    padding-top: 10px;
+}
+
+.card-content p {
+    font-size: 15px;
+    font-style: italic;
+    color: #7f7f90;
+}
+
+.chefs-cards .social-box {
+    width: fit-content;
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff4d;
+    top: 30px;
+    right: -50px;
+    transition: right calc((400ms) / 2);
+}
+
+.chefs-cards .card:hover .social-box {
+    right: 10px;
+    transition: right 400ms 400ms;
+}
+
+.chefs-cards .social-box i {
+    font-size: 18px;
+    padding: 10px 5px;
+    color: #37373f66;
+    transition: color 400ms;
+}
+
+.chefs-cards .social-box i:hover {
+    color: #37373fe6;
 }
 
 /* CHEFS Section End */
 
+/* Gallery Section Start */
+.gallery {
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.gallery-photos {
+    gap: 20px;
+    height: 1165px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.gallery-photos picture {
+    width: calc(calc(100% - 20px * 2) / 3);
+    border: 4px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-photos picture img {
+    width: 100%;
+    transition: scale 400ms;
+}
+.gallery-photos picture img:hover {
+    scale: 1.1;
+}
+
+.gallery-photos picture .layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px;
+    background-color: #00000096;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;    
+    color: #fff;
+    transition: top 400ms;
+}
+
+.gallery-photos picture:hover img {
+    scale: 1.1;
+  }
+
+.gallery-photos picture:hover .layer {
+    top: 0;
+}
+
+.gallery-photos picture .layer p {
+    color: #ddd;
+    text-align: center;
+}
+
+
+/* Gallery Section End */
