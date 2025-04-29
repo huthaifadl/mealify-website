@@ -1,12 +1,15 @@
+@media screen and (min-width: 400px) {
+
+    .header-content h2 {
+        font-size: 55px;
+    }
+}
+
 @media screen and (min-width: 567px) {
     
 }
 
 @media screen and (min-width: 768px) {
-    
-}
-
-@media screen and (min-width: 992px) {
     .md-show {
         display: flex;
     }
@@ -16,8 +19,38 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
+    .flex-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
+    .header-img {
+        width: 50%;
+    }
+
+    .header-content {
+        width: 40%;
+    }
+
+    .header-content h2 {
+        font-size: 65px;
+    }
     
+    .header-content {
+        text-align: left;
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+    .btn-group {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: start;
+    }
 }
 
 @media screen and (min-width: 1300px) {

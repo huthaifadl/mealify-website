@@ -10,12 +10,17 @@
   --nav-color: #fff;
   --second-color-default: #fff;
   --black: #000;
+  --headings-color: #37373f;
 }
 
 :root:has(.theme:checked) {
     --main-color: hsl( 35, 72%, 44% );
     --nav-color: hsl( 0, 0%, 9% );
     --black: #fff;
+    --bg-color: #252525;
+    --headings-color: #fff;
+    --second-color-default: #202020;
+    --color-default: #fff;
 }
 :root:has(.theme:checked) .dark {
     display: none;
@@ -79,6 +84,7 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--headings-color);
   font-family: var(--main-font);
 }
 
@@ -100,7 +106,7 @@ span {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--headings-color);
 }
 
 /* ---------------------------------------------------- */
@@ -209,7 +215,7 @@ ul.nav-links > li > a {
 
 .home {
   display: flex;
-  background-color: #eee;
+  background-color: var(--bg-color);
   min-height: 100vh;
   align-items: center;
   overflow: hidden;
@@ -217,15 +223,15 @@ ul.nav-links > li > a {
 
 header .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 95px;
+  justify-content: center;
+  margin-top: 100px;
 }
 
-header .container > * {
+/* header .container > * {
   width: 40%;
-}
+} */
 
 .header-img img {
   max-height: 90vh;
@@ -235,8 +241,11 @@ header .container > * {
   filter: drop-shadow(4px 4px 9px #000a);
 }
 
+.header-content {
+  text-align: center;
+}
+
 .header-content h2 {
-  /* color: #37373f; */
   font-size: 65px;
   font-family: "Amatic SC", sans-serif;
 }
@@ -245,17 +254,18 @@ header .container > * {
   margin: 20px 0;
   line-height: 1.6;
   font-size: 16px;
-  color: #4f4f5a;
+  color: #5a5a64;
 }
 
-.header-content .btn-group {
+.btn-group {
   display: flex;
   align-items: center;
-  gap: 40px;
+  row-gap: 15px;
+  flex-direction: column;
 }
 
 .btn {
-  color: hsl(0, 0%, 100%);
+  color: var(--bg-color);
   border-width: 2px;
   border: 2px solid transparent;
 }
@@ -268,13 +278,13 @@ header .btn-main {
   padding: 10px 25px;
   border-radius: 0px 100px 100px;
   background-color: var(--main-color);
-  font-size: 15;
+  font-size: 15px;
 }
 
 a.video-btn {
   display: flex;
   align-items: center;
-  font-weight: 600px;
+  font-weight: 600;
   transition: 400ms;
 }
 
@@ -298,7 +308,7 @@ a.video-btn {
 .video-btn .icon::before {
   content: "";
   position: absolute;
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--second-color-default);
   width: 40px;
   height: 40px;
   transform: translate(-20px, -20px);
@@ -376,7 +386,6 @@ header picture img:hover {
 }
 
 .main-title h2 {
-  color: #7f7f90;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
