@@ -1,58 +1,152 @@
 @media screen and (min-width: 400px) {
+  .header-content h2 {
+    font-size: 55px;
+  }
 
-    .header-content h2 {
-        font-size: 55px;
-    }
+  .container {
+  }
 }
 
 @media screen and (min-width: 567px) {
-    
+  footer .sunscription-group {
+    flex-direction: row;
+  }
+
+  footer .container :is(.about, .contact-details) {
+    width: calc(calc(100% - 20px) / 2);
+    order: 1;
+  }
+
+  footer .container :is(.subscription) {
+    width: 100%;
+    order: 2;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .md-show {
-        display: flex;
-    }
+  .md-show {
+    display: flex;
+  }
 
-    .md-hide {
-        display: none;
-    }
+  .md-hide {
+    display: none;
+  }
+
+  .chefs-cards .card {
+    width: calc(calc(100% - 30px * 2) / 2);
+  }
+
+  .gallery-photos picture {
+    width: calc(calc(100% - 20px * 2) / 2);
+  }
+
+  .gallery-photos {
+    height: 1405px;
+  }
+
+  .details > div {
+    width: calc(calc(100% - 15px) / 2);
+  }
+
+  /* start menu */
+  .nav-menu {
+    position: static;
+    height: auto;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    flex-direction: row;
+    padding: 0;
+    gap: 32px;
+  }
+
+  /* تظهر الروابط بشكل صف */
+  .nav-links {
+    flex-direction: row;
+    display: flex;
+  }
+
+  /* تخفي زر الإغلاق */
+  .close-btn {
+    display: none;
+  }
+
+  /* تخفي زر bars */
+  .bars {
+    display: none;
+  }
+  /* End menu */
 }
 
 @media screen and (min-width: 992px) {
-    .flex-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-    }
+  .flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
 
-    .header-img {
-        width: 50%;
-    }
+  .container {
+    width: 1320px;
+  }
 
-    .header-content {
-        width: 40%;
-    }
+  .header-img {
+    width: 50%;
+  }
 
-    .header-content h2 {
-        font-size: 65px;
-    }
-    
-    .header-content {
-        text-align: left;
-    }
-    
+  .header-content {
+    width: 40%;
+  }
+
+  .header-content h2 {
+    font-size: 65px;
+  }
+
+  .header-content {
+    text-align: left;
+  }
+
+  .chefs-cards .card {
+    width: calc(calc(100% - 30px * 2) / 3);
+  }
+
+  .gallery-photos picture {
+    width: calc(calc(100% - 20px) / 3);
+  }
+
+  .gallery-photos {
+    height: 1000px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-    .btn-group {
-        flex-direction: row;
-        gap: 15px;
-        justify-content: start;
-    }
+  .btn-group {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: start;
+  }
+
+  .gallery-photos {
+    height: 845px;
+  }
+
+  .gallery-photos picture {
+    width: calc(calc(100% - 20px * 2) / 3);
+  }
+
+  .gallery-photos {
+    height: 1165px;
+  }
+
+  footer .container :is(.about, .contact-details) {
+    width: calc(calc(100% - 20px * 2) / 4);
+    order: 2;
+  }
+
+  footer .container :is(.subscription) {
+    width: calc(calc(100% - 20px * 2) / 2);
+  }
 }
 
 @media screen and (min-width: 1300px) {
-    
 }

@@ -10,23 +10,30 @@
   --nav-color: #fff;
   --second-color-default: #fff;
   --black: #000;
+  --cards-color: #fff;
   --headings-color: #37373f;
+  --contact-item-bg: hsl(0, 0%, calc(100% - 4%));
+  --filter-img: brightness(1) invert(0);
 }
 
 :root:has(.theme:checked) {
-    --main-color: hsl( 35, 72%, 44% );
-    --nav-color: hsl( 0, 0%, 9% );
-    --black: #fff;
-    --bg-color: #252525;
-    --headings-color: #fff;
-    --second-color-default: #202020;
-    --color-default: #fff;
+  --main-color: hsl(35, 72%, 44%);
+  --nav-color: hsl(0, 0%, 9%);
+  --black: #fff;
+  --bg-color: #252525;
+  --headings-color: #fff;
+  --second-color-default: #202020;
+  --cards-color: #171717;
+  --color-default: #fff;
+  --contact-item-bg: hsl(0, 0%, calc(9% - 4%));
+  --filter-img: invert(95%) sepia(4%) saturate(500%) hue-rotate(0deg)
+    brightness(90%) contrast(90%);
 }
 :root:has(.theme:checked) .dark {
-    display: none;
+  display: none;
 }
 :root:has(.theme:checked) .light {
-    display: block;
+  display: block;
 }
 
 /* Global Style */
@@ -45,6 +52,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-default);
   color: var(--color-default);
@@ -53,8 +64,9 @@ body {
 
 .container {
   /*Move it to media quiery*/
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
+  padding-inline: 15px;
 }
 
 .container {
@@ -128,7 +140,7 @@ nav > .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 5px;
+  padding: 25px 15px;
   flex-wrap: wrap; /*السماح لعناصر فليكس بوكس بالنزول إلى سطر جديد*/
   margin: 0 auto;
 }
@@ -199,15 +211,68 @@ ul.nav-links > li > a {
 }
 
 .mode-group > .icon > label > i,
-.mode-group > label > i {
+.mode-group > a > i {
   font-size: 25px;
   font-weight: 900;
   color: var(--black);
 }
 
+.mode-group .icon {
+  margin-right: 15px;
+}
+
 .icon > .light {
   display: none;
 }
+
+/* start menu */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: var(--nav-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+  gap: 30px;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+/* عند استهداف القائمة */
+#menu:target {
+  right: 0;
+}
+
+/* الروابط داخل القائمة */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* زر الإغلاق */
+.close-btn {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--black);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* bars button */
+.bars {
+  cursor: pointer;
+  font-size: 25px;
+  color: var(--black);
+}
+/* End menu */
 
 /* ---------------------------------------------------- */
 
@@ -412,11 +477,10 @@ header picture img:hover {
 }
 
 .chefs-cards .card {
-  width: calc(calc(100% - 30px * 2) / 3);
-  text-align: center;
+  /* text-align: center; */
   box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
   transition: scale 400ms;
-  background-color: var(--second-color-default);
+  background-color: var(--cards-color);
   overflow: hidden;
   position: relative;
   border-radius: 8px;
@@ -425,6 +489,10 @@ header picture img:hover {
 .chefs-cards .card picture {
   width: 100%;
   position: relative;
+}
+
+.card picture img {
+  width: 100%;
 }
 
 .chefs-cards .card picture::before {
@@ -436,6 +504,7 @@ header picture img:hover {
   left: 0;
   width: 100%;
   height: 60px;
+  filter: var(--filter-img);
 }
 
 .chefs-cards .card span {
@@ -447,6 +516,7 @@ header picture img:hover {
 .card-content {
   padding: 25px;
   padding-top: 10px;
+  text-align: center;
 }
 
 .card-content p {
@@ -486,20 +556,20 @@ header picture img:hover {
 
 /* Gallery Section Start */
 .gallery {
-  background-color: #eee;
+  background-color: var(--bg-color);
   overflow: hidden;
 }
 
 .gallery-photos {
   gap: 20px;
-  height: 1165px;
+  height: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
 .gallery-photos picture {
-  width: calc(calc(100% - 20px * 2) / 3);
+  width: 100%;
   border: 4px solid #fff;
   position: relative;
   overflow: hidden;
@@ -555,7 +625,7 @@ header picture img:hover {
 
 .contact form {
   box-shadow: 0px 0px 30px #00000014;
-  background-color: var(--second-color-default);
+  background-color: var(--cards-color);
   gap: 15px;
   padding: 20px;
 }
@@ -566,16 +636,20 @@ header picture img:hover {
 }
 
 .details {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   padding: 15px 0;
 }
 
+.details > div {
+  width: 100%;
+}
+
 .item {
-  background-color: hsl(0, 0%, calc(100% - 4%));
-  flex: 0 0 calc(50% - 10px);
+  background-color: var(--contact-item-bg);
+  /* flex: 0 0 calc(50% - 10px); */
   padding: 25px;
   display: flex;
   flex-direction: row;
@@ -586,7 +660,7 @@ header picture img:hover {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background-color: #cf1112;
+  background-color: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -669,7 +743,7 @@ footer .container {
 
 footer .container > .about,
 footer .container > .contact-details {
-  width: calc(calc(100% - 20px * 2) / 4);
+  width: 100%;
 }
 
 footer .about img {
@@ -717,7 +791,7 @@ footer .about ul li a i {
 }
 
 footer .container .subscription {
-  width: calc(calc(100% - 20px * 2) / 2);
+  width: 100%;
 }
 
 .subscription p {
@@ -726,6 +800,7 @@ footer .container .subscription {
 
 footer .sunscription-group {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   gap: 10px;
   margin: 20px 0;
@@ -747,6 +822,12 @@ footer .sunscription-group {
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 10px;
+}
+
+.about h3,
+.subscription h3,
+.contact-details h3 {
+  color: #fff;
 }
 
 .quick-links ul li {
@@ -781,6 +862,7 @@ i.fa-solid.fa-angle-right {
   display: flex;
   gap: 8px;
   align-items: center;
+  padding-block: 10px;
 }
 
 .contact-details ul li i {
@@ -794,5 +876,3 @@ i.fa-solid.fa-angle-right {
   cursor: pointer;
   color: var(--main-color);
 }
-
-
